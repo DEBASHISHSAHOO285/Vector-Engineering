@@ -9,7 +9,7 @@ function Admin() {
   const [editId, setEditId] = useState(null);
 
   const loadProducts = () => {
-    fetch("http://localhost:5000/api/products")
+    fetch("https://vector-engineering.onrender.com/api/products")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   };
@@ -28,13 +28,13 @@ function Admin() {
     if (image) formData.append("image", image);
 
     if (editId) {
-      await fetch(`http://localhost:5000/api/products/${editId}`, {
+      await fetch(`https://vector-engineering.onrender.com/api/products/${editId}`, {
         method: "PUT",
         body: formData,
       });
       alert("Updated ✅");
     } else {
-      await fetch("http://localhost:5000/api/products", {
+      await fetch("https://vector-engineering.onrender.com/api/products", {
         method: "POST",
         body: formData,
       });
@@ -50,7 +50,7 @@ function Admin() {
   };
 
   const handleDelete = async (id) => {
-    await fetch(`http://localhost:5000/api/products/${id}`, {
+    await fetch(`https://vector-engineering.onrender.com/api/products/${id}`, {
       method: "DELETE",
     });
     loadProducts();
@@ -111,7 +111,7 @@ function Admin() {
           <div key={item._id} className="bg-[#111] p-3 rounded">
 
             <img
-              src={`http://localhost:5000/uploads/${item.image}`}
+              src={`https://vector-engineering.onrender.com/uploads/${item.image}`}
               alt={item.name}
               className="h-32 w-full object-contain mb-2"
             />

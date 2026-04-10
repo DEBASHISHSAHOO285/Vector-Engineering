@@ -12,7 +12,7 @@ function Navbar({ search, setSearch }) {
   // USER LOAD
   useEffect(() => {
     if (token) {
-      fetch("http://localhost:5000/api/me", {
+      fetch("https://vector-engineering.onrender.com/api/me", {
         headers: { Authorization: `Bearer ${token}` },
       })
         .then((res) => res.json())
@@ -23,7 +23,7 @@ function Navbar({ search, setSearch }) {
 
   // PRODUCTS LOAD
   useEffect(() => {
-    fetch("http://localhost:5000/api/products")
+    fetch("https://vector-engineering.onrender.com/api/products")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);

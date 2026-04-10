@@ -23,7 +23,7 @@ const calculateProfit = () => {
 };
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/products")
+    fetch("https://vector-engineering.onrender.com/api/products")
       .then((res) => res.json())
       .then((data) => {
         const found = data.find(
@@ -44,7 +44,7 @@ const calculateProfit = () => {
 
         <div className="bg-[#111] p-4 rounded-lg flex justify-center items-center">
           <img
-            src={`http://localhost:5000/uploads/${product.image}`}
+            src={`https://vector-engineering.onrender.com/uploads/${product.image}`}
             alt={product.name}
             className="max-h-[400px] object-contain"
           />

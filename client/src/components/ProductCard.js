@@ -9,7 +9,7 @@ function ProductCard({ _id, name, image }) {
 
       {/* IMAGE */}
       <img
-        src={`http://localhost:5000/uploads/${image}`}
+        src={`https://vector-engineering.onrender.com/uploads/${image}`}
         alt={name}
         className="w-full h-40 object-contain"
       />

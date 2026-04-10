@@ -9,7 +9,7 @@ function Products() {
   
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/products")
+    fetch("https://vector-engineering.onrender.com/api/products")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
