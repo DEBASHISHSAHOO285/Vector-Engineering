@@ -234,10 +234,14 @@ ${message}
 });
 const path = require("path");
 
-// serve frontend
-app.use(express.static(path.join(__dirname, "client/build")));
+// static files serve
+app.use(express.static(path.join(__dirname, "../client/build")));
 
-app.get("/*", (req, res) => {
+// 👇 IMPORTANT FIX (NO "*" NO "/*")
+app.use((req, res, next) => {
+  if (req.path.startsWith("/api")) {
+    return next(); // API ko skip karega
+  }
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
