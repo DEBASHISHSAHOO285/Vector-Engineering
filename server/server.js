@@ -191,9 +191,9 @@ app.get("/make-admin", async (req, res) => {
 
 /* ================= TEST ================= */
 
-app.get("/", (req, res) => {
+/* app.get("/", (req, res) => {
   res.send("Server running 🚀");
-});
+}); */
 
 // Email API
 
@@ -232,10 +232,19 @@ ${message}
     res.status(500).json({ message: "Email failed ❌" });
   }
 });
+const path = require("path");
+
+// serve frontend
+app.use(express.static(path.join(__dirname, "client/build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client/build/index.html"));
+});
 
 // START
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log("Server running on port " + PORT);
 });
+
 
